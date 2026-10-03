@@ -1,0 +1,6 @@
+# Replace these addresses with the addresses used by your cluster.
+# Add this content to /etc/hosts on every node.
+
+192.168.109.141 headnode
+192.168.109.142 cn1
+192.168.109.143 cn2

@@ -1,0 +1,26 @@
+# Example Slurm configuration for a small 3-node educational cluster.
+# Verify paths, CPUs, Slurm version, and user/group names on your system
+# before deploying this file.
+
+ClusterName=hpc-lab
+SlurmctldHost=headnode
+
+SlurmUser=slurm
+AuthType=auth/munge
+
+StateSaveLocation=/var/lib/slurm/slurmctld
+SlurmdSpoolDir=/var/lib/slurm/slurmd
+
+SlurmctldPidFile=/run/slurmctld.pid
+SlurmdPidFile=/run/slurmd.pid
+
+ProctrackType=proctrack/cgroup
+ReturnToService=2
+
+SelectType=select/cons_tres
+SelectTypeParameters=CR_Core
+
+NodeName=cn1 CPUs=2 State=UNKNOWN
+NodeName=cn2 CPUs=2 State=UNKNOWN
+
+PartitionName=compute Nodes=cn1,cn2 Default=YES MaxTime=INFINITE State=UP
